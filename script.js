@@ -13,8 +13,27 @@ const lookup = {
 function rot13(encodedStr){
    let decodedArr = []; // Your Result goes here
   // Only change code below this line
+	function rot13(encodedStr) {
+  let decodedArr = [];
 
-  return ;//return decodedArr
+  for (let i = 0; i < encodedStr.length; i++) {
+    let char = encodedStr[i];
+    let code = char.charCodeAt();
+
+    if (code >= 65 && code <= 90) {
+      // If the character is an uppercase letter, apply ROT13 cipher
+      code = ((code - 65 + 13) % 26) + 65;
+      char = String.fromCharCode(code);
+    }
+
+    decodedArr.push(char);
+  }
+
+  return decodedArr.join('');
+}
+
+
+ 
 }
 
 // You can test your code by running the above function and printing it to console by pressing the run button at the top. To run it with input 36, uncomment the following line
